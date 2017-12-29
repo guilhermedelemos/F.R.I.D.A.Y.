@@ -23,6 +23,10 @@ instalar_essenciais() {
     apt-get install -y gnupg2 dirmngr
     # Cliente de Torrent
     apt-get install -y transmission
+    # Unrar
+    echo "deb http://ftp.de.debian.org/debian jessie main non-free" >> /etc/apt/sources.list
+    apt-get update
+    apt-get install -y rar
 }
 
 instalar_java() {
