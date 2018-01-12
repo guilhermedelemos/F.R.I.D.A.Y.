@@ -27,6 +27,8 @@ instalar_essenciais() {
     echo "deb http://ftp.de.debian.org/debian jessie main non-free" >> /etc/apt/sources.list
     apt-get update
     apt-get install -y rar
+    # CD/DVD Burner
+    apt-get install -y brasero
 }
 
 instalar_java() {
