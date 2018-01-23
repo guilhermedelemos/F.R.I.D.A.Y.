@@ -54,10 +54,23 @@ instalar_postgresql() {
     su postgres
     psql -c "ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';"
     exit
+
+    # Ferramentas de apoio
+    apt-get install -y pgadmin3
 }
 
 instalar_sqlite3() {
     apt-get install -y sqlite3
+}
+
+instalar_mariadb() {
+    apt-get install software-properties-common dirmngr
+    apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xF1656F24C74CD1D8
+    add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirror.ufscar.br/mariadb/repo/10.2/debian stretch main'
+    apt-get update
+    apt-get install -y mariadb-server
+    # Ferramenta para modelagem e gerenciamento
+    apt-get install -y mysql-workbench
 }
 
 instalar_php() {
@@ -94,9 +107,12 @@ instalar_ruby() {
     apt-get install -y curl gnupg libmagickcore-dev libmagickwand-dev
     apt-get install -y ruby ruby-dev rubygems libruby ruby-full libapache2-mod-passenger
     # Dependencia do Jekyll
+    curl -sL https://deb.nodesource.com/setup_9.x | bash -
     apt-get install -y nodejs
     gem install rails
     gem install jekyll
+    # Depencencias do Redmine
+    gem install bundler
     # Phusionpassenger
     apt-get install -y dirmngr gnupg
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
@@ -170,6 +186,7 @@ instalar() {
     instalar_java
     instalar_postgresql
     instalar_sqlite3
+    instalar_mariadb
     instalar_php
     instalar_ruby
     instalar_ftp
