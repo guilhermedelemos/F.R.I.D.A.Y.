@@ -4,7 +4,7 @@ ATENÇÃO: use por sua conta e risco.
 
 ## 1- Instalação do SO
 - [ ] Instalar [Windows 10][WIN10].
-- [ ] Particionar HD de acordo com o recomendado pelo instalador.
+- [ ] Particionar HD de acordo com o recomendado pelo instalador (eu uso 2 HDs).
 - [ ] Configurar [conta Microsoft][MSLIVE].
 
 [WIN10]: https://www.microsoft.com/pt-br/store/d/windows-10-pro/df77x4d43rkt?icid=CNavWindows10Pro
@@ -12,8 +12,8 @@ ATENÇÃO: use por sua conta e risco.
 
 ## 2- Instalação dos softwares de segurança.
 ### 2.1- Instalar um dos seguintes:
-- [ ] Norton [Site][NORTON] :thumbsup:
-- [ ] McAfee [Site][MCAFEE] :ok_hand:
+- [ ] McAfee [Site][MCAFEE] :thumbsup:
+- [ ] Norton [Site][NORTON] :ok_hand:
 - [ ] Avast [Site][AVAST] :wave:
 - [ ] AVG [Site][AVG] :wave:
 
@@ -25,6 +25,7 @@ ATENÇÃO: use por sua conta e risco.
 ## 3- Instalação de softwares de escritório, produtividade, etc.
 ### 3.1- Pacote office
 - [ ] Office 365
+- [ ] Office 20xx?
 
 ### 3.2- Navegadores
 - [ ] Chrome ([Site][CHROME]).
@@ -56,16 +57,25 @@ ATENÇÃO: use por sua conta e risco.
 [JAVASE]: https://www.oracle.com/java/index.html
 
 ### 4.2- Git
-- [ ] Git Core
-- [ ] Source Tree
-- [ ] GitHub Desktop :octocat:
+- [ ] Git Core ([Site][GIT])
+- [ ] Source Tree ([Site][SOURCETREE])
+- [ ] GitHub Desktop ([Site][GITHUBDESKTOP]) :octocat:
+
+[GIT]: https://
+[SOURCETREE]: https://
+[GITHUBDESKTOP]: https://
 
 ### 4.3- Subversion :floppy_disk:
-- [ ] Tortoise SVN
+- [ ] Tortoise SVN ([Site][TORTOISESVN])
+
+[TORTOISESVN]: http://
 
 ### 4.4- Merge
-- [ ] Winmerge
-- [ ] Kdiff
+- [ ] Winmerge ([Site][WINMERGE])
+- [ ] Kdiff ([Site][KDIFF])
+
+[WINMERGE]: http://
+[KDIFF]: http://
 
 ## 5- Conclusão
 - [ ] Reiniciar, pronto para uso.
