@@ -4,14 +4,15 @@ ATENÇÃO: use por sua conta e risco.
 
 ## 1- Instalação do SO
 - [ ] Instalar [Windows 10][WIN10].
-- [ ] Particionar HD de acordo com o recomendado pelo instalador (eu uso 2 HDs).
+- [ ] Particionar HD de acordo com o recomendado pelo instalador.
+- [ ] Verificar (manualmente) reconhecimento do 2º HD.
 - [ ] Configurar [conta Microsoft][MSLIVE].
 
 [WIN10]: https://www.microsoft.com/pt-br/store/d/windows-10-pro/df77x4d43rkt?icid=CNavWindows10Pro
 [MSLIVE]: https://login.live.com
 
 ## 2- Instalação dos softwares de segurança.
-### 2.1- Instalar um dos seguintes:
+### 2.1- Instalar um dos seguintes
 - [ ] McAfee [Site][MCAFEE] :thumbsup:
 - [ ] Norton [Site][NORTON] :ok_hand:
 - [ ] Avast [Site][AVAST] :wave:
@@ -26,6 +27,7 @@ ATENÇÃO: use por sua conta e risco.
 ### 3.1- Pacote office
 - [ ] Office 365
 - [ ] Office 20xx?
+- [ ] Open Office
 
 ### 3.2- Navegadores
 - [ ] Chrome ([Site][CHROME]).
@@ -41,14 +43,27 @@ ATENÇÃO: use por sua conta e risco.
 
 [XCODEC]: http://www.xpcodecpack.com
 
-### 3.4- Outros
+### 3.4- Editores de Texto/Código
 - [ ] Notepad++ ([Site][NOTEPAD]).
-- [ ] 7Zip ([Site][7ZIP]).
-- [ ] YouTube Downloader ([Site][YTD]). :innocent:
+- [ ] Atom ([Site][ATOM]).
+- [ ] Visual Studio Code ([Site][VSCODE]).
+- [ ] Visual Studio Community ([Site][VSTUDIO]).
 
 [NOTEPAD]: https://notepad-plus-plus.org
-[7ZIP]: http://www.7-zip.org/
+[ATOM]: https://atom.io
+[VSCODE]: https://code.visualstudio.com
+[VSTUDIO]: https://visualstudio.microsoft.com
+
+### 3.5- Outros
+- [ ] 7Zip ([Site][7ZIP]).
+- [ ] YouTube Downloader ([Site][YTD]). :innocent:
+- [ ] FileZilla FTP ([Site][FILEZILLA]).
+- [ ] Putty ([Site][PUTTY]).
+
+[7ZIP]: http://www.7-zip.org
 [YTD]: https://youtubedownloader.com
+[FILEZILLA]: https://filezilla-project.org
+[PUTTY]: https://www.putty.org/
 
 ## 4- Desenvolvimento
 ### 4.1- Java
@@ -61,21 +76,21 @@ ATENÇÃO: use por sua conta e risco.
 - [ ] Source Tree ([Site][SOURCETREE])
 - [ ] GitHub Desktop ([Site][GITHUBDESKTOP]) :octocat:
 
-[GIT]: https://
-[SOURCETREE]: https://
-[GITHUBDESKTOP]: https://
+[GIT]: https://git-scm.com
+[SOURCETREE]: https://www.sourcetreeapp.com
+[GITHUBDESKTOP]: https://desktop.github.com
 
 ### 4.3- Subversion :floppy_disk:
 - [ ] Tortoise SVN ([Site][TORTOISESVN])
 
-[TORTOISESVN]: http://
+[TORTOISESVN]: https://tortoisesvn.net/downloads.html
 
 ### 4.4- Merge
 - [ ] Winmerge ([Site][WINMERGE])
 - [ ] Kdiff ([Site][KDIFF])
 
-[WINMERGE]: http://
-[KDIFF]: http://
+[WINMERGE]: http://winmerge.org
+[KDIFF]: http://kdiff3.sourceforge.net
 
 ## 5- Conclusão
 - [ ] Reiniciar, pronto para uso.
