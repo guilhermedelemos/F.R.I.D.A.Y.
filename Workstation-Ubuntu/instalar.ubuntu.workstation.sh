@@ -20,6 +20,7 @@ instalar() {
     instalar_ruby
     instalar_shhhhh
     instalar_R
+    instalar_asp_dot_net_c_sharp
     exibir_avisos_encerramento
 }
 
@@ -208,6 +209,25 @@ instalar_shhhhh() {
 
 instalar_R() {
     sudo apt-get install -y r-base r-base-dev
+}
+
+# :/
+instalar_asp_dot_net_c_sharp() {
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+    echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+    sudo apt-get update
+    # Mono Complete
+    sudo apt-get install -y mono-complete
+    # Debug Symbols
+    sudo apt-get install -y mono-dbg
+    # PCL Compilation support
+    sudo apt-get install -y referenceassemblies-pcl
+    # SSL certificates for HTTPS
+    sudo apt-get install -y ca-certificates-mono
+    # Running .Net Applications
+    sudo apt-get install -y mono-xsp4
+    # Visual Studio Code
+    # https://code.visualstudio.com/
 }
 
 exibir_avisos_encerramento() {
