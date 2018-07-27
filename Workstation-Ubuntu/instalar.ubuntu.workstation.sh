@@ -89,7 +89,15 @@ instalar_essenciais() {
     sudo apt-get install -y ffmpeg
     sudo add-apt-repository ppa:obsproject/obs-studio && sudo apt-get update
     sudo apt-get install -y obs-studio
-
+    # YouTube
+    # http://www.webupd8.org/2017/08/youtube-dl-gui-04-ships-with-new-user.html
+    sudo add-apt-repository ppa:nilarimogard/webupd8
+    sudo apt install youtube-dlg
+    # Ambient Noise
+    sudo add-apt-repository ppa:costales/anoise
+    sudo apt-get install anoise gir1.2-webkit-3.0
+    sudo apt install anoise-community-extension1 anoise-community-extension2 anoise-community-extension3 anoise-community-extension4
+    # 
 }
 
 instalar_java() {
@@ -162,6 +170,8 @@ instalar_php() {
     sudo apt-get install -y php7.2-apcu
     # extenção MySQL/MariaDB
     sudo apt-get install -y php7.2-mysql
+    # BZip2
+    sudo apt-get install -y php7.2-bz2
 }
 
 instalar_virtualbox() {
