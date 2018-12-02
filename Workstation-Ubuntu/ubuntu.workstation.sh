@@ -108,6 +108,8 @@ configurar_github() {
         rm /tmp/FRIDAY_GPG
         GITHUB_GPG_PAYLOAD='{"armored_public_key": "'$GPG_KEY'"}'
         curl -d "$GITHUB_GPG_PAYLOAD" -H "$GITHUB_HEADER_AUTH" -H "$GITHUB_HEADER_CONTENT" -X POST $GITHUB_URL_GPG_KEYS
+
+        git config --global user.signingkey $GPG_ID
     fi
 }
 
@@ -115,13 +117,13 @@ instalar() {
     echo "=============================="
     echo "| INÍCIO DA INSTALAÇÃO       |"
     echo "=============================="
-    #instalar_essenciais
-    #instalar_sdkman
-    #instalar_linguagens
-    #gerar_SSHKey
-    #gerar_GPGKey
-    #configurar_github
-    #criar_diretorios
+    criar_diretorios
+    instalar_essenciais
+    instalar_sdkman
+    instalar_linguagens
+    gerar_SSHKey
+    gerar_GPGKey
+    configurar_github
 }
 
 instalar
