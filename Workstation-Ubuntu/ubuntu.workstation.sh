@@ -110,6 +110,9 @@ configurar_github() {
         curl -d "$GITHUB_GPG_PAYLOAD" -H "$GITHUB_HEADER_AUTH" -H "$GITHUB_HEADER_CONTENT" -X POST $GITHUB_URL_GPG_KEYS
 
         git config --global user.signingkey $GPG_ID
+        test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+        echo 'export GPG_TTY=$(tty)' >> ~/.profile
+        git config --global commit.gpgsign true
     fi
 }
 
