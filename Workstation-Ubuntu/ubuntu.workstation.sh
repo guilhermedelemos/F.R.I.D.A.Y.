@@ -37,15 +37,8 @@ instalar_essenciais() {
     sudo apt install -y transmission
     # CD/DVD Burner
     sudo apt install -y brasero
-}
-
-instalar_audacity() {
-    echo "====================================="
-    echo "| INSTALAR AUDACITY (editor de som) |"
-    echo "====================================="
-    sudo add-apt-repository ppa:ubuntuhandbook1/audacity
-    sudo apt update
-    sudo apt install -y audacity
+    # Diff
+    sudo apt install -y kdiff3
 }
 
 instalar_sdkman() {
@@ -71,11 +64,18 @@ instalar_linguagens() {
     echo "php ruby python :'("
 }
 
-instalar_sqlite() {
+instalar_nodejs() {
+    echo "======================================"
+    echo "| NODE JS                            |"
+    echo "======================================"
+    
+}
+
+instalar_r() {
     echo "=============================="
-    echo "| INSTALAÇÃO SQLITE3         |"
+    echo "| INSTALAÇÃO R               |"
     echo "=============================="
-    sudo apt install -y sqlite3
+    sudo apt install -y r-base r-base-dev
 }
 
 instalar_latex() {
@@ -88,63 +88,40 @@ instalar_latex() {
     #apt install -y texstudio
 }
 
-instalar_atom() {
+instalar_php() {
+    # TODO PHP
     echo "=============================="
-    echo "| INSTALAÇÃO ATOM.io         |"
+    echo "| INSTALAÇÃO PHP             |"
     echo "=============================="
-    cd /tmp
-    wget https://atom.io/download/deb -O atom-amd64.deb
-    sudo apt install ./atom-amd64.deb
-    rm atom-amd64.deb
+    echo "TODO :/"
 }
 
-instalar_netbeans() {
+instalar_ruby() {
+    # TODO Ruby
     echo "=============================="
-    echo "| INSTALAÇÃO NETBEANS        |"
+    echo "| INSTALAÇÃO RUBY            |"
     echo "=============================="
-    cd ~/Ferramentas
-    wget http://ftp.unicamp.br/pub/apache/incubator/netbeans/incubating-netbeans-java/incubating-9.0/incubating-netbeans-java-9.0-bin.zip
-    unzip incubating-netbeans-java-9.0-bin.zip
-    rm incubating-netbeans-java-9.0-bin.zip
+    echo "TODO :/"
 }
 
-instalar_postgresql() {
+instalar_python() {
+    # TODO Python
     echo "=============================="
-    echo "| INSTALAÇÃO POSTGRESQL      |"
+    echo "| INSTALAÇÃO PYTHON          |"
     echo "=============================="
-    # REPOSITÓRIO OFICIAL DO POSTGRESQL
-    # MAIS INFORMAÇÕES EM: https://www.postgresql.org/download/linux/debian/
-    sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    echo "TODO :/"
+}
+
+instalar_audacity() {
+    echo "====================================="
+    echo "| INSTALAR AUDACITY (editor de som) |"
+    echo "====================================="
+    sudo add-apt-repository ppa:ubuntuhandbook1/audacity
     sudo apt update
-
-    # NA ORDEM: Servidor, modulos adicionais, bibliotecas e binarios cliente, desenvolvimento frontend, desenvolvimento backend, ferramenta administrativa
-    sudo apt install -y postgresql-10 postgresql-contrib-10 postgresql-client-10 libpq-dev postgresql-server-dev-10
-
-    # TODO Alterar senha padrão do POSTGRESQL
-    # ALTERACAO DA SENHA PADRAO
-    #sudo su postgres
-    #psql -c "ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';"
-    #exit
-
-    # Ferramentas de apoio
-    sudo apt install -y pgadmin4
+    sudo apt install -y audacity
 }
-instalar_intellij() {
-    echo "=============================="
-    echo "| INSTALAÇÃO INTELLIJ        |"
-    echo "=============================="
-    cd /tmp
-    sudo apt install -y fuse
-    sudo modprobe fuse
-    sudo groupadd fuse
-    user="$(whoami)"
-    sudo usermod -a -G fuse $user
-    wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.12.4481.tar.gz
-    tar -xvf jetbrains-toolbox-1.12.4481.tar.gz
-    cd jetbrains-toolbox-1.12.4481
-    ./jetbrains-toolbox
-}
+
+
 instalar_obsstudio() {
     echo "=============================="
     echo "| INSTALAÇÃO OBS STUDIO      |"
@@ -152,13 +129,6 @@ instalar_obsstudio() {
     sudo apt install -y ffmpeg
     sudo add-apt-repository ppa:obsproject/obs-studio && sudo apt update
     sudo apt install -y obs-studio
-}
-instalar_gnucash() {
-    echo "=============================="
-    echo "| INSTALAÇÃO GNUCASH         |"
-    echo "=============================="
-    sudo apt install -y gnupg2 dirmngr
-    sudo apt install -y gnucash
 }
 
 instalar_youtubedl() {
@@ -170,6 +140,14 @@ instalar_youtubedl() {
 
   sudo add-apt-repository ppa:nilarimogard/webupd8
   sudo apt install -y youtube-dlg
+}
+
+instalar_gnucash() {
+    echo "=============================="
+    echo "| INSTALAÇÃO GNUCASH         |"
+    echo "=============================="
+    sudo apt install -y gnupg2 dirmngr
+    sudo apt install -y gnucash
 }
 
 instalar_virtualbox() {
@@ -195,12 +173,7 @@ instalar_virtualbox() {
     wget http://download.virtualbox.org/virtualbox/$var1/$file -O /tmp/$file
     VBoxManage extpack install /tmp/$file --replace
 }
-instalar_r() {
-    echo "=============================="
-    echo "| INSTALAÇÃO R               |"
-    echo "=============================="
-    sudo apt install -y r-base r-base-dev
-}
+
 instalar_android() {
     # TODO Android/Emuladores
     echo "=============================="
@@ -208,27 +181,73 @@ instalar_android() {
     echo "=============================="
     echo "TODO :/"
 }
-instalar_php() {
-    # TODO PHP
+
+instalar_sqlite() {
     echo "=============================="
-    echo "| INSTALAÇÃO PHP             |"
+    echo "| INSTALAÇÃO SQLITE3         |"
     echo "=============================="
-    echo "TODO :/"
+    sudo apt install -y sqlite3
 }
-instalar_ruby() {
-    # TODO Ruby
+
+instalar_postgresql() {
     echo "=============================="
-    echo "| INSTALAÇÃO RUBY            |"
+    echo "| INSTALAÇÃO POSTGRESQL      |"
     echo "=============================="
-    echo "TODO :/"
+    # REPOSITÓRIO OFICIAL DO POSTGRESQL
+    # MAIS INFORMAÇÕES EM: https://www.postgresql.org/download/linux/debian/
+    sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+    sudo apt update
+
+    # NA ORDEM: Servidor, modulos adicionais, bibliotecas e binarios cliente, desenvolvimento frontend, desenvolvimento backend, ferramenta administrativa
+    sudo apt install -y postgresql-10 postgresql-contrib-10 postgresql-client-10 libpq-dev postgresql-server-dev-10
+
+    # TODO Alterar senha padrão do POSTGRESQL
+    # ALTERACAO DA SENHA PADRAO
+    #sudo su postgres
+    #psql -c "ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';"
+    #exit
+
+    # Ferramentas de apoio
+    sudo apt install -y pgadmin4
 }
-instalar_python() {
-    # TODO Python
+
+instalar_atom() {
     echo "=============================="
-    echo "| INSTALAÇÃO PYTHON          |"
+    echo "| INSTALAÇÃO ATOM.io         |"
     echo "=============================="
-    echo "TODO :/"
+    cd /tmp
+    wget https://atom.io/download/deb -O atom-amd64.deb
+    sudo apt install -y ./atom-amd64.deb
+    rm atom-amd64.deb
 }
+
+instalar_netbeans() {
+    echo "=============================="
+    echo "| INSTALAÇÃO NETBEANS        |"
+    echo "=============================="
+    cd ~/Ferramentas
+    wget http://ftp.unicamp.br/pub/apache/incubator/netbeans/incubating-netbeans-java/incubating-9.0/incubating-netbeans-java-9.0-bin.zip
+    unzip incubating-netbeans-java-9.0-bin.zip
+    rm incubating-netbeans-java-9.0-bin.zip
+}
+
+instalar_intellij() {
+    echo "=============================="
+    echo "| INSTALAÇÃO INTELLIJ        |"
+    echo "=============================="
+    cd /tmp
+    sudo apt install -y fuse
+    sudo modprobe fuse
+    sudo groupadd fuse
+    user="$(whoami)"
+    sudo usermod -a -G fuse $user
+    wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.12.4481.tar.gz
+    tar -xvf jetbrains-toolbox-1.12.4481.tar.gz
+    cd jetbrains-toolbox-1.12.4481
+    ./jetbrains-toolbox
+}
+
 instalar_nvidia() {
     # TODO Placa de Vídeo
     echo "=============================="
@@ -243,6 +262,7 @@ instalar_nvidia() {
     lsmod | grep nvidia
     #reboot
 }
+
 instalar_heroku() {
     echo "=============================="
     echo "| INSTALAÇÃO HEROKU          |"
@@ -250,6 +270,7 @@ instalar_heroku() {
     sudo snap install heroku --classic
     heroku login
 }
+
 gerar_SSHKey() {
     echo "=============================="
     echo "| GERAÇÃO DA CHAVE SSH       |"
@@ -334,9 +355,10 @@ instalar() {
 
     instalar_sdkman
     instalar_linguagens
+    instalar_nodejs
     instalar_r
     instalar_latex
-    instalar_php    # TODO PHP
+    instalar_php     # TODO PHP
     instalar_ruby    # TODO Ruby
     instalar_python  # TODO Python
 
