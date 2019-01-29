@@ -369,6 +369,7 @@ instalar() {
 
     instalar_sqlite
     instalar_postgresql
+    instalar_mongodb
 
     instalar_atom
     instalar_netbeans
