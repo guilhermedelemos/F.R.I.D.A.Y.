@@ -28,7 +28,7 @@ instalar_essenciais() {
     # Transferência de dados usando URLs
     sudo apt install -y curl
     # Gerenciadorer de código-fonte
-    sudo apt install -y git
+    sudo apt install -y git kdiff3
     # Ferramentas de compilação
     sudo apt install -y build-essential
     # Ferramenta de descompressão
@@ -130,6 +130,17 @@ instalar_postgresql() {
     # Ferramentas de apoio
     sudo apt install -y pgadmin4
 }
+
+instalar_mongodb() {
+    echo "=============================="
+    echo "| INSTALAÇÃO MONGO DB        |"
+    echo "=============================="
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+    sudo apt update
+    sudo apt install -y mongodb-org
+}
+
 instalar_intellij() {
     echo "=============================="
     echo "| INSTALAÇÃO INTELLIJ        |"
@@ -229,6 +240,12 @@ instalar_python() {
     echo "=============================="
     echo "TODO :/"
 }
+instalar_node() {
+    echo "=============================="
+    echo "| INSTALAÇÃO NODE            |"
+    echo "=============================="
+    sudo apt install -y nodejs npm
+}
 instalar_nvidia() {
     # TODO Placa de Vídeo
     echo "=============================="
@@ -278,6 +295,8 @@ configurar_git() {
     read -p "GIT user.email: " GIT_EMAIL
     git config --global user.email "$GIT_EMAIL"
     git config --global user.name "$GIT_NAME"
+    git config --global diff.tool kdiff3
+    git config --global merge.tool kdiff3
 }
 
 configurar_github() {
@@ -339,6 +358,7 @@ instalar() {
     instalar_php    # TODO PHP
     instalar_ruby    # TODO Ruby
     instalar_python  # TODO Python
+    instalar_node
 
     instalar_audacity
     instalar_obsstudio
