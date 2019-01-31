@@ -17,6 +17,7 @@ upgrade_so() {
     echo "=============================="
     sudo apt update
     sudo apt upgrade
+    sudo apt-get dist-upgrade
 }
 
 instalar_essenciais() {
@@ -39,6 +40,10 @@ instalar_essenciais() {
     sudo apt install -y brasero
     # Diff
     sudo apt install -y kdiff3
+    # Ajustes no GNOME
+    sudo apt install -y gnome-tweaks
+    # Particionamento de disco
+    sudo apt install -y gparted
 }
 
 instalar_sdkman() {
@@ -68,7 +73,11 @@ instalar_nodejs() {
     echo "======================================"
     echo "| NODE JS                            |"
     echo "======================================"
-    
+    echo "Para mais informações: https://github.com/nodesource/distributions/blob/master/README.md#deb"
+    curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+    sudo apt install -y nodejs
+    # Parcel provides a fast way to create React applications
+    sudo npm i -g parcel-bundler
 }
 
 instalar_r() {
@@ -101,7 +110,16 @@ instalar_ruby() {
     echo "=============================="
     echo "| INSTALAÇÃO RUBY            |"
     echo "=============================="
-    echo "TODO :/"
+    gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+    \curl -sSL https://get.rvm.io | bash -s stable
+    source /home/guilherme/.rvm/scripts/rvm
+    rvm install 2.6.1
+    rvm 2.6.1
+    gem install rails -v 5.2.2
+    rvm gemset create rails522
+    rvm 2.6.1@rails522
+    gem install rails -v 5.2.2
+    gem install bundler jekyll
 }
 
 instalar_python() {
@@ -195,6 +213,7 @@ instalar_postgresql() {
     echo "=============================="
     # REPOSITÓRIO OFICIAL DO POSTGRESQL
     # MAIS INFORMAÇÕES EM: https://www.postgresql.org/download/linux/debian/
+    sudo apt install -y libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev
     sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     sudo apt update
@@ -204,9 +223,9 @@ instalar_postgresql() {
 
     # TODO Alterar senha padrão do POSTGRESQL
     # ALTERACAO DA SENHA PADRAO
-    #sudo su postgres
-    #psql -c "ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';"
-    #exit
+    sudo su postgres
+    psql -c "ALTER USER postgres WITH ENCRYPTED PASSWORD 'postgres';"
+    exit
 
     # Ferramentas de apoio
     sudo apt install -y pgadmin4
@@ -269,6 +288,74 @@ instalar_heroku() {
     echo "=============================="
     sudo snap install heroku --classic
     heroku login
+}
+
+instalar_munin() {
+    echo "=============================="
+    echo "| INSTALAÇÃO MUNIN           |"
+    echo "=============================="
+    sudo apt install -y apache2 libcgi-fast-perl libapache2-mod-fcgid
+    sudo a2enmod fcgid
+    sudo apt install -y munin munin-node munin-plugins-extra
+    echo "REALIZE A CONFIGURAÇÃO MANUAL EM /etc/munin/munin.conf"
+}
+
+instalar_onedrive() {
+    echo "=============================="
+    echo "| INSTALAÇÃO ONEDRIVE        |"
+    echo "=============================="
+    cd ~/Ferramentas
+    git clone https://github.com/skilion/onedrive.git
+    cd onedrive
+    make
+    sudo make install
+    onedrive
+    systemctl --user enable onedrive
+    systemctl --user start onedrive
+    echo "Instalação do OneDrive concluída"
+    echo "Para mais informações de configuração, acesse:"
+    echo "https://github.com/skilion/onedrive"
+}
+
+instalar_alternativa_skype_for_business() {
+    echo "==============================================="
+    echo "| INSTALAÇÃO (alternativa) SKYPE FOR BUSINESS |"
+    echo "==============================================="
+    sudo apt install -y pidgin pidgin-sipe
+    echo "REALIZE A CONFIGURAÇÃO MANUAL (exemplo):"
+    echo "PARA MAIS INFORMAÇÕES: https://www.tiespecialistas.com.br/skype-for-business-no-linux-sim-com-pidgin/"
+    echo "Adicionar Conta"
+    echo "> Aba Básico"
+    echo "Nome de usuário: Email de parceiro completo"
+    echo "Senha: xxx"
+    echo "Apelido: Seu nome"
+    echo "> Aba Avançado"
+    echo "Servidor/Porta: sipdir.online.lync.com:443"
+    echo "Tipo de Conexão: Automático"
+    echo "Agente do Usuário: UCCAPI/15.0.4420.1017 OC/15.0.4420.1017"
+    echo "Esquema de autenticação: TLS-DSK"
+}
+
+instalar_ferramentas_postgresql() {
+    echo "====================================="
+    echo "| INSTALAÇÃO Ferramentas PostgreSQL |"
+    echo "====================================="
+    echo "Pré-Requisito do PgModeler: QT"
+    echo "https://wiki.qt.io/Install_Qt_5_on_Ubuntu"
+    sudo apt install -y libfontconfig1 mesa-common-dev libglu1-mesa-dev
+    cd /tmp
+    wget http://download.qt.io/official_releases/qt/5.9/5.9.0/qt-opensource-linux-x64-5.9.0.run
+    chmod +x qt-opensource-linux-x64-5.9.0.run
+    ./qt-opensource-linux-x64-5.9.0.run
+
+    echo "PgModeler"
+    echo "https://pgmodeler.io/support/installation"
+    cd ~/Ferramentas
+    git clone git@github.com:pgmodeler/pgmodeler.git
+    cd pgmodeler
+    ~/.Qt5.9.0/5.9/gcc_64/bin/qmake -r PREFIX=~/Ferramentas/pgmodeler BINDIR=~/Ferramentas/pgmodeler PRIVATEBINDIR=~/Ferramentas/pgmodeler PRIVATELIBDIR=~/Ferramentas/pgmodeler/lib pgmodeler.pro
+    make
+    make install
 }
 
 gerar_SSHKey() {
@@ -377,6 +464,10 @@ instalar() {
     instalar_intellij
 
     instalar_heroku
+
+    instalar_munin
+    instalar_onedrive
+    instalar_alternativa_skype_for_business
 
     gerar_SSHKey
     gerar_GPGKey
