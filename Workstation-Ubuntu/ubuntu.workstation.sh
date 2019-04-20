@@ -44,6 +44,8 @@ instalar_essenciais() {
     sudo apt install -y gnome-tweaks
     # Particionamento de disco
     sudo apt install -y gparted
+    # Browser
+    sudo apt install -y firefox
 }
 
 instalar_sdkman() {
