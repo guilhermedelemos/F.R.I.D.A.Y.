@@ -46,6 +46,8 @@ instalar_essenciais() {
     sudo apt install -y gparted
     # Browser
     sudo apt install -y firefox
+    # 
+    sudo apt install -y ubuntu-restricted-extras
 }
 
 instalar_sdkman() {
@@ -61,9 +63,8 @@ instalar_linguagens() {
     echo "======================================"
     echo "| LINGUAGENS DE PROGRAMAÇÃO (SDKMAN) |"
     echo "======================================"
-    sdk install java 8.0.192-zulu
-    sdk install java 10.0.2-zulu
-    sdk default java 8.0.192-zulu
+    sdk install java 8.0.212
+    sdk install java 11.0.3
     sdk install groovy
     sdk install gradle
     sdk install grails
