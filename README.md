@@ -13,7 +13,7 @@ Esta documentação funciona para mim, ofereço da forma que está e não me res
 * Mãos a obra.
 * Boa sorte.
 
-## Problemas
+## Problemas :exclamation:
 Se encontrar algum problema, favor enviar um pull request com a correção ou abrir uma Issue para que possamos corrigir. Grato. :thumbsup:
 
 ## Agradecimentos :tada:
