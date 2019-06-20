@@ -6,9 +6,9 @@ criar_diretorios() {
     echo "======================================"
     cd ~/
     pwd
-    mkdir Projetos
+    mkdir Projects
     mkdir public_html
-    mkdir Ferramentas
+    mkdir Tools
 }
 
 upgrade_so() {
@@ -101,15 +101,43 @@ instalar_latex() {
 }
 
 instalar_php() {
-    # TODO PHP
+    # TODO update php
     echo "=============================="
-    echo "| INSTALAÇÃO PHP             |"
+    echo "| INSTALAÇÃO Apache+PHP      |"
     echo "=============================="
-    echo "TODO :/"
+    # instala apache2 e php5
+    sudo apt-get install -y apache2 php7.2 libapache2-mod-php7.2
+    # instala extenção SQLite para php5
+    sudo apt-get install -y php7.2-sqlite3
+    # instala extenção PostgreSQL para php5
+    sudo apt-get install -y php7.2-pgsql
+    # instala extenção GD (biblioteca gráfica) para php5
+    sudo apt-get install -y php7.2-gd
+    # instala extenção CURL
+    sudo apt-get install -y php7.2-curl
+    # instala extenção IMAP
+    sudo apt-get install -y libc-client-dev php7.2-imap
+    sudo phpenmod imap
+    # instala extenção INTL (internationalization)
+    sudo apt-get install -y php7.2-intl
+    # extenção SOAP, JSON e XML
+    sudo apt-get install -y php7.2-xml php7.2-soap php7.2-json php7.2-xmlrpc
+    # extenção zip
+    sudo apt-get install -y php7.2-zip
+    # extenção mbstring
+    sudo apt-get install -y php7.2-mbstring
+    # extenção mcrypt
+    sudo apt-get install -y php7.2-mcrypt
+    # extenção apcu para cache
+    sudo apt-get install -y php7.2-apcu
+    # extenção MySQL/MariaDB
+    sudo apt-get install -y php7.2-mysql
+    # BZip2
+    sudo apt-get install -y php7.2-bz2
 }
 
 instalar_ruby() {
-    # TODO Ruby
+    # TODO update Ruby
     echo "=============================="
     echo "| INSTALAÇÃO RUBY            |"
     echo "=============================="
@@ -183,9 +211,18 @@ instalar_youtubedl() {
   echo "=============================="
   echo http://www.webupd8.org/2017/08/youtube-dl-gui-04-ships-with-new-user.html
   echo https://github.com/MrS0m30n3/youtube-dl-gui
-
   sudo add-apt-repository ppa:nilarimogard/webupd8
   sudo apt install -y youtube-dlg
+}
+
+instalar_anoise() {
+    echo "=============================="
+    echo "| INSTALAÇÃO ANOISE          |"
+    echo "=============================="
+    echo https://anoise.tuxfamily.org
+    sudo add-apt-repository ppa:costales/anoise
+    sudo apt install -y anoise gir1.2-webkit-3.0
+    sudo apt install -y anoise-community-extension1 anoise-community-extension2 anoise-community-extension3 anoise-community-extension4
 }
 
 instalar_gnucash() {
@@ -267,13 +304,16 @@ instalar_atom() {
     wget https://atom.io/download/deb -O atom-amd64.deb
     sudo apt install -y ./atom-amd64.deb
     rm atom-amd64.deb
+    echo "Extenções"
+    code --install-extension davidanson.vscode-markdownlint
+    code --install-extension yzhang.markdown-all-in-one
 }
 
 instalar_netbeans() {
     echo "=============================="
     echo "| INSTALAÇÃO NETBEANS        |"
     echo "=============================="
-    cd ~/Ferramentas
+    cd ~/Tools
     wget http://ftp.unicamp.br/pub/apache/incubator/netbeans/incubating-netbeans-java/incubating-9.0/incubating-netbeans-java-9.0-bin.zip
     unzip incubating-netbeans-java-9.0-bin.zip
     rm incubating-netbeans-java-9.0-bin.zip
@@ -339,7 +379,7 @@ instalar_onedrive() {
     echo "=============================="
     echo "| INSTALAÇÃO ONEDRIVE        |"
     echo "=============================="
-    cd ~/Ferramentas
+    cd ~/Tools
     git clone https://github.com/skilion/onedrive.git
     cd onedrive
     make
@@ -385,10 +425,10 @@ instalar_ferramentas_postgresql() {
 
     echo "PgModeler"
     echo "https://pgmodeler.io/support/installation"
-    cd ~/Ferramentas
+    cd ~/Tools
     git clone git@github.com:pgmodeler/pgmodeler.git
     cd pgmodeler
-    ~/.Qt5.9.0/5.9/gcc_64/bin/qmake -r PREFIX=~/Ferramentas/pgmodeler BINDIR=~/Ferramentas/pgmodeler PRIVATEBINDIR=~/Ferramentas/pgmodeler PRIVATELIBDIR=~/Ferramentas/pgmodeler/lib pgmodeler.pro
+    ~/.Qt5.9.0/5.9/gcc_64/bin/qmake -r PREFIX=~/Tools/pgmodeler BINDIR=~/Tools/pgmodeler PRIVATEBINDIR=~/Tools/pgmodeler PRIVATELIBDIR=~/Tools/pgmodeler/lib pgmodeler.pro
     make
     make install
 }
@@ -482,14 +522,15 @@ instalar() {
     instalar_nodejs
     instalar_r
     instalar_latex
-    instalar_php     # TODO PHP
-    instalar_ruby    # TODO Ruby
+    instalar_php     # TODO update PHP
+    instalar_ruby    # TODO update Ruby
     instalar_python  # TODO Python
     instalar_node
 
     instalar_audacity
     instalar_obsstudio
     instalar_youtubedl
+    instalar_anoise
     instalar_gnucash
     instalar_virtualbox
     instalar_android # TODO Android
