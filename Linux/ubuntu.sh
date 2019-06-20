@@ -76,9 +76,11 @@ instalar_nodejs() {
     echo "======================================"
     echo "| NODE JS                            |"
     echo "======================================"
-    echo "Para mais informações: https://github.com/nodesource/distributions/blob/master/README.md#deb"
-    curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-    sudo apt install -y nodejs
+    echo https://github.com/nvm-sh/nvm#installation-and-update
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+    command -v nvm
+    nvm install node
+    # nvm use node
     # Parcel provides a fast way to create React applications
     sudo npm i -g parcel-bundler
 }
