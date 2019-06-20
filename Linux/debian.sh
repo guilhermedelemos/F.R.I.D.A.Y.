@@ -5,7 +5,7 @@
 # ATUALIZADO EM 29/12/2017
 
 # Atualiza o Sistema Operacional para a versão mais recente possível.
-atualizar_so() {
+atualizar_so() { 
     apt-get update
     apt-get upgrade
     apt-get dist-upgrade
@@ -157,6 +157,10 @@ instalar_virtualbox() {
     file="Oracle_VM_VirtualBox_Extension_Pack-$var1-$var2.vbox-extpack"
     wget http://download.virtualbox.org/virtualbox/$var1/$file -O /tmp/$file
     VBoxManage extpack install /tmp/$file --replace
+}
+
+instalar_snort() {
+    apt-get install -y snort snort-common snort-common-libraries snort-rules-default
 }
 
 exibir_avisos_inicializacao() {
