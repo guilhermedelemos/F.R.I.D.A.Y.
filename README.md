@@ -3,8 +3,6 @@ Documentação para reinstalação do meu ambiente de desenvolvimento.
 
 Este repositório está separado de acordo com o sistema operacional. Atualmente meu sistema principal usa Ubuntu, portanto, deve ser o mais atualizado.
 
-Infelizmente o meu [Mac](https://www.apple.com/br/shop/buy-mac/macbook-pro/13-inch) já era. Atualmente serve a um propósito maior, é brinquedo da minha filha. :smile:
-
 ## Atenção :warning:
 Esta documentação funciona para mim, ofereço da forma que está e não me responsabilizo por ela. Use por sua conta e risco.
 
