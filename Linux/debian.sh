@@ -17,7 +17,7 @@ upgrade_so() {
     echo "=============================="
     sudo apt update
     sudo apt upgrade
-    sudo apt-get dist-upgrade
+    sudo apt dist-upgrade
 }
 
 instalar_essenciais() {
@@ -51,7 +51,7 @@ instalar_sdkman() {
     echo "| SDKMAN                     |"
     echo "=============================="
     curl -s "https://get.sdkman.io" | bash
-    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    source "/home/guilherme/.sdkman/bin/sdkman-init.sh"
     sdk version
 }
 
@@ -60,8 +60,8 @@ instalar_linguagens() {
     echo "| LINGUAGENS DE PROGRAMAÇÃO (SDKMAN) |"
     echo "======================================"
     sdk install java 8.0.212-librca
-    sdk install java 11.0.3-librca
-    sdk install java 12.0.1-librca
+    #sdk install java 11.0.3-librca
+    #sdk install java 12.0.1-librca
     sdk install groovy
     sdk install grails
     sdk install gradle
@@ -486,45 +486,16 @@ instalar() {
     criar_diretorios
     upgrade_so
     instalar_essenciais
-
     instalar_sdkman
     instalar_linguagens
     instalar_nodejs
     instalar_r
     instalar_latex
-    instalar_php     # TODO update PHP
-    instalar_ruby    # TODO update Ruby
-    instalar_python  # TODO Python
-    instalar_node
-
-    instalar_audacity
-    instalar_obsstudio
-    instalar_youtubedl
-    instalar_anoise
-    instalar_gnucash
-    instalar_virtualbox
-    instalar_android # TODO Android
-
+    instalar_php
     instalar_sqlite
-    instalar_postgresql
-    instalar_mongodb
-
-    instalar_atom
-    instalar_netbeans
-    instalar_intellij
-
-    instalar_heroku
-
-    instalar_munin
-    instalar_onedrive
-    instalar_alternativa_skype_for_business
-
     gerar_SSHKey
     gerar_GPGKey
-    configurar_github
     configurar_git
-
-    instalar_nvidia
     echo "=============================="
     echo "| FIM DA INSTALAÇÃO          |"
     echo "=============================="
