@@ -292,14 +292,11 @@ instalar_postgresql() {
     sudo apt install -y pgadmin4
 }
 
-instalar_atom() {
+instalar_vscode() {
     echo "=============================="
-    echo "| INSTALAÇÃO ATOM.io         |"
+    echo "| INSTALAÇÃO VS Code         |"
     echo "=============================="
-    cd /tmp
-    wget https://atom.io/download/deb -O atom-amd64.deb
-    sudo apt install -y ./atom-amd64.deb
-    rm atom-amd64.deb
+    echo "Pendente"
     echo "Extenções"
     code --install-extension davidanson.vscode-markdownlint
     code --install-extension yzhang.markdown-all-in-one
