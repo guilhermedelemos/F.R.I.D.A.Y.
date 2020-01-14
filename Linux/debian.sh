@@ -44,6 +44,8 @@ instalar_essenciais() {
     #sudo apt install -y gnome-tweaks
     # Particionamento de disco
     sudo apt install -y gparted
+    # htop
+    sudo apt install -y htop
 }
 
 instalar_sdkman() {
